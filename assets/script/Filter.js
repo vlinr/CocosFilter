@@ -1,9 +1,8 @@
 class Filter {
     /***
      * author:zlife@vip.qq.com
-     * parms:
+     * params:
      *  node:对应节点的cc.Sprite
-     * 
      * desc:
      *  可以继续自定义，使用说明，基于cocos
      *  let f=new Filter(this.node.getComponent(cc.Sprite));
