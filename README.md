@@ -4,7 +4,7 @@ cocoscreator2d滤镜：
 使用demo：
 需要使用filter地方，只需要将Fliter引入，并且使用相应的方法即可，如：
 
-import Filter from './Filter' //引入Filter
+import Filter from './Filter';
 cc.Class({
     extends: cc.Component,
     properties: {
