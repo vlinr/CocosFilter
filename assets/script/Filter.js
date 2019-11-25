@@ -91,7 +91,7 @@ class Filter {
         ctx.putImageData(imgData, 0, 0);
     }
     //绿红蓝
-    //parms:type:default 1,可选 2,3分别表示绿红蓝
+    //params:type:default 1,可选 2,3分别表示绿红蓝
     greenRedBlue(callBack,type) {
         let colorType = arguments[1] || 1;
         this._createCanvas(canvas => {
