@@ -9,8 +9,8 @@ cc.Class({
 
     start() {
         //创建原生canvas
-        let f=new Filter(this.node.getComponent(cc.Sprite));
-        f.mosaic(canvas=>{
+        let filter=new Filter(this.node.getComponent(cc.Sprite));
+        filter.mosaic(canvas=>{
             var texture = new cc.Texture2D();
             texture.initWithElement(canvas);
             texture.handleLoadedTexture();
