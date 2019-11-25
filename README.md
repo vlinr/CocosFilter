@@ -25,40 +25,28 @@ cc.Class({
 });
 源码方法说明：
 Filter.grayScale:表示灰度；
-/*****
 *params:
 * callBack:回调函数
-**/
 
 Filter.antiColor:表示反色;
-/*****
 *params:
 * callBack:回调函数
-**/
 
 Filter.blankWhite:表示黑白;
-/*****
 *params:
 * callBack:回调函数
-**/
 
 Filter.greenRedBlue:表示红绿蓝其中一种;
-/*****
 *params:
 * callBack:回调函数
 * type:1|2|3,default:1,表示绿蓝红的其中一个
-**/
 
 Filter.vague:表示模糊;
-/*****
 *params:
 * callBack:回调函数
 * blur:default:1,表示模糊尺度
-**/
 
 Filter.mosaic:表示马赛克效果;
-/*****
 *params:
 * callBack:回调函数
 * size:default:1,马赛克块的大小
-**/
