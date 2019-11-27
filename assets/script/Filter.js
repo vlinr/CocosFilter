@@ -24,7 +24,7 @@ class Filter {
             img = new Image();
         canvas.width = texture.width;
         canvas.height = texture.height;
-        img.src = `${texture.url}`;
+        img.src = `${CC_WECHATGAME?wx.env.USER_DATA_PATH+'/':''}${texture.url}`;
         img.onload = function (res) {
             ctx.drawImage(img, 0, 0);
             callBack && callBack(canvas)
