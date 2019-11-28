@@ -14,8 +14,9 @@ class Filter {
             this.node.getComponent(cc.Sprite).spriteFrame = newframe;
         })
      * **/
-    constructor(node) {
+    constructor(node,userServer=false) {
         this.node = node;
+        this.userServer = userServer;
     }
     _createCanvas(callBack) {
         let canvas = document.createElement('canvas'),
@@ -24,7 +25,7 @@ class Filter {
             img = new Image();
         canvas.width = texture.width;
         canvas.height = texture.height;
-        img.src = `${CC_WECHATGAME?wx.env.USER_DATA_PATH+'/':''}${texture.url}`;
+        img.src = `${CC_WECHATGAME && this.userServer?wx.env.USER_DATA_PATH + '/':''}${texture.url}`;
         img.onload = function (res) {
             ctx.drawImage(img, 0, 0);
             callBack && callBack(canvas)
