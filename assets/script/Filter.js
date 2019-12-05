@@ -2,7 +2,8 @@ class Filter {
     /***
      * author:zlife@vip.qq.com
      * params:
-     *  node:对应节点的cc.Sprite
+     *  info:对应节点的cc.Sprite 或者 包含 url,width,height对一个对象
+     *  urlType：是否使用url模式
      * desc:
      *  可以继续自定义，使用说明，基于cocos
      *  let f=new Filter(this.node.getComponent(cc.Sprite));
@@ -14,18 +15,29 @@ class Filter {
             this.node.getComponent(cc.Sprite).spriteFrame = newframe;
         })
      * **/
-    constructor(node,userServer=false) {
-        this.node = node;
-        this.userServer = userServer;
+    constructor(info, useServer = false, urlType = false) {
+        this.info = info;
+        this.useServer = useServer;
+        this.urlType = urlType;
     }
     _createCanvas(callBack) {
         let canvas = document.createElement('canvas'),
             ctx = canvas.getContext('2d'),
-            texture = this.node.spriteFrame.getTexture(),
-            img = new Image();
-        canvas.width = texture.width;
-        canvas.height = texture.height;
-        img.src = `${CC_WECHATGAME && this.userServer?wx.env.USER_DATA_PATH + '/':''}${texture.url}`;
+            img = new Image(),url = '' , width = 0 ,height = 0;
+        if(this.urlType){//代表使用url模式
+            url = this.info.url;
+            width = this.info.width;
+            height = this.info.height;
+        }else{
+            let texture = this.info.spriteFrame.getTexture();
+            url = texture.url;
+            height = texture.height;
+            width = texture.width;
+        }
+        if (url == "") { callBack && callBack(-1); return; }
+        canvas.width = width;
+        canvas.height = height;
+        img.src = `${CC_WECHATGAME && this.useServer?wx.env.USER_DATA_PATH + '/':''}${texture.url}`;
         img.onload = function (res) {
             ctx.drawImage(img, 0, 0);
             callBack && callBack(canvas)
